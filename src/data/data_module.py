@@ -1,10 +1,10 @@
-import pytorch_lightning as pl
+import lightning as L
 from torch.utils.data import DataLoader, Dataset
 import torch
 from omegaconf import DictConfig
 
 
-class BaseDataModule(pl.LightningDataModule):
+class BaseDataModule(L.LightningDataModule):
     def __init__(self, cfg: DictConfig):
         super().__init__()
         self.cfg = cfg

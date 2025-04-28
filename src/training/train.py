@@ -1,9 +1,9 @@
 import os
 import hydra
 from omegaconf import DictConfig, OmegaConf
-import pytorch_lightning as pl
-from pytorch_lightning.callbacks import ModelCheckpoint, EarlyStopping
-from pytorch_lightning.loggers import TensorBoardLogger, WandbLogger
+import lightning as L
+from lightning.callbacks import ModelCheckpoint, EarlyStopping
+from lightning.loggers import TensorBoardLogger, WandbLogger
 import wandb
 
 from src.models.base_model import BaseModel
@@ -47,7 +47,7 @@ def main(cfg: DictConfig) -> None:
     )
     
     # Initialize trainer
-    trainer = pl.Trainer(
+    trainer = L.Trainer(
         max_epochs=cfg.training.max_epochs,
         accelerator=cfg.training.accelerator,
         devices=cfg.training.devices,

@@ -1,4 +1,4 @@
-import pytorch_lightning as pl
+import lightning as L
 import torch
 import torch.nn as nn
 import wandb
@@ -6,7 +6,7 @@ from torch.optim.lr_scheduler import CosineAnnealingLR
 from omegaconf import DictConfig
 
 
-class BaseModel(pl.LightningModule):
+class BaseModel(L.LightningModule):
     def __init__(self, cfg: DictConfig):
         super().__init__()
         self.cfg = cfg
